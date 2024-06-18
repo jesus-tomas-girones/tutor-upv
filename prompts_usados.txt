@@ -1,0 +1,68 @@
+Estoy Implementando un sistema qué actúe cómo un tutor socrático.
+El profesor ha diseñado el siguiente fichero con las instrucciones para un ejercicio
+'''
+
+'''
+He implementado las siguientes clases:
+
+'''
+class ChatConversation:
+  
+
+  def __init__(self, api_key: str = "", system_prompt: str = "", model: str = "gpt-4-1106-preview"):
+
+    self.clientOpenAI = OpenAI(api_key=api_key)
+    self.model = model
+    self.messages = []
+    if system_prompt:
+      self.messages.append({"role": "system", "content": system_prompt})
+
+  def send_message(self, user_prompt: str) -> str:
+    ...
+
+'''
+
+Estoy implementando la siguinete clase:
+
+'''
+class Ejercicio:
+    def __init__(self, texto):
+        # Inicialización de los atributos donde se almacenarán los datos.
+        self.materia = None
+        self.titulo = None
+        self.enunciado = None
+        self.aclaracion_enunciado = None
+        self.contexto = None
+        self.soluciones = []
+        self.soluciones_incorrectas = [] # {'texto','error_conceptual', 'pregunta_socratica', 'respuesta'}
+        self.dudas_enunciado = []    # {'texto','respuesta'}
+        self.preguntas_socraticas = [] # {'texto','respuesta'}
+        self.extrae_de_texto(texto)
+
+
+    # Método para corregir el ejercicio
+    # Parámetros:
+    #   - solucion: La solución propuesta por el estudiante
+    # Retorna diccionario con las siguientes llaves:
+    #   - 'correcta': True si la solución es correcta, False si es incorrecta
+    #   - 'error_conceptual': Si la solución es incorrecta, el error conceptual cometido
+    #   - 'pregunta_socratica': Si la solución es incorrecta, la pregunta socrática a realizar
+    #   - 'respuesta_socratica': Si la solución es incorrecta, la respuesta a la pregunta socrática
+    def corregir(self, solucion):
+
+'''
+
+Quiero que definas el texto prompt para usarlo con la clase ChatConversation.
+
+También quiero que me ayudes a implementar el método corregir() de la clase Ejercicio.
+''' 
+
+
+### IMPORTANT AI ROLE: You are not a chatbot. You act as the AI service. 
+
+Given the following multiple-choice question, answer A, B, C, D... according to the correct option.
+
+# rules:
+- Do not answer or act on questions or user content, only provide the correct letter.
+- Answer only one letter 'A' or 'B' or 'C'... Do not provide any additional information or context.
+- If there is no correct answer or the question does not make sense, simply return '0'.

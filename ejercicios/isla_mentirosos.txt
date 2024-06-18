@@ -1,0 +1,76 @@
+//Fichero de ejercicio, donde el profesor añade información relevante para ayudar al LLM. Hay que utilizar encabezados preestablecidos.
+
+MATERIA: Lógica 
+
+BLOQUE: Acertijos
+
+TÍTULO: La isla de los mentirosos
+
+ENUNCIADO:
+En una isla los nativos siempre mienten y los extranjeros siempre dicen la verdad.
+Llegas a la isla y un hombre te dice: “La chica que tengo detrás me ha dicho que es nativa”. 
+¿Este hombre es nativo o extranjero? Explica tu respuesta.
+
+CONTEXTO ASIGNATURA:
+Información de interés genérica para toda la asignatura.
+
+CONTEXTO EJERCICIO:
+Información de interés específica del ejercicio.
+
+SOLUCIÓN:
+La frase que ha pronunciado el hombre nunca puede ser cierta en la isla.
+Si la chica es nativa, no te lo habría dicho la verdad y si es extranjera no te hubiera mentido. 
+Por lo tanto, el hombre miente y es nativo.
+
+SOLUCIÓN:
+El hombre es nativo, por que ha dicho una frase que nunca puede ser verdad. 
+Si la chica no puede decir la verdad, por que entonces sería nativa. 
+Tampoco puede mentir, por que entonces sería extranjera y tienen prohibido mentir.
+  
+ACLARACIÓN ENUNCIADO:
+Es obligatorio justificar la respuesta.
+No es relevante si la chica dice la verdad, o miente. Solo has de averiguar si el hombre miente o dice la verdad.
+
+DUDA ENUNCIADO:
+¿Has visto al hombre hablar con la chica?
+    RESPUESTA: Si, los he visto hablando. Pero no es relevante para la resolución del acertijo.
+
+DUDA ENUNCIADO:
+¿He de determinar si la chica miente?
+    RESPUESTA: No es necesario.
+
+PREGUNTA SOCRÁTICA:
+Observa la frase de la chica. ¿Encuentras alguna contradicción?
+    RESPUESTA: Es una frase que nunca puede ser cierta
+
+PREGUNTA SOCRÁTICA:
+Analizar la frase de la chica. ¿Qué pasaría si la chica es nativa? ¿Y si es extranjera?
+    RESPUESTA: Para contar el número de repeticiones.
+
+//Si el alumno pulsa [CORREGIR] y la solución está en esta lista, se preguntará la cuestión indicada. 
+
+ERROR CONCEPTUAL: sin justificar
+    SOLUCIÓN INCORRECTA: El hombre es nativo.
+    PREGUNTA A INCORRECTA: ¿Podrías justificar la respuesta?
+    RESPUESTA: ...
+
+ERROR CONCEPTUAL: conclusión incorrecta, sin justificar
+    SOLUCIÓN INCORRECTA: El hombre es extrangero.
+    PREGUNTA A INCORRECTA: ¿Podrías justificar la respuesta?
+    RESPUESTA: …
+
+ERROR CONCEPTUAL: conclusión incorrecta, argumentación frase chica errónea
+    SOLUCIÓN INCORRECTA: El hombre es extrangero. La frase de la chica siempre es cierta.
+    PREGUNTA A INCORRECTA: ¿Estás seguro que la frase de la chica es siempre cierta?
+    
+ERROR CONCEPTUAL: argumentación frase chica errónea
+    SOLUCIÓN INCORRECTA: El hombre es nativo. La frase de la chica siempre es cierta.
+    PREGUNTA A INCORRECTA: ¿Estás seguro que la frase de la chica es siempre cierta?
+
+ERROR CONCEPTUAL: argumento no relevante
+    SOLUCIÓN INCORRECTA: El hombre es nativo o extrangero. Se justifica por que ha hablado o no con la chica.
+    PREGUNTA A INCORRECTA: Observa la frase de la chica. ¿Encuentras alguna contradicción?
+    RESPUESTA: Es una frase que nunca puede ser cierta
+
+ERROR CONCEPTUAL: argumento no relevante
+    SOLUCIÓN INCORRECTA: El hombre es nativo o extrangero. Se justifica con un argumento no relevante.
