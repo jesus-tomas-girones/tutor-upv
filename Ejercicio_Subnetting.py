@@ -12,7 +12,7 @@ with st.sidebar:
 
 #openai_api_key = st.secrets.OPENAI_API_KEY # No puede ir al principio
 
-st.title("Tutor Socrático 💬")
+st.title("Tutor Socrático 2 💬")
 col1, col2 = st.columns([0.4,0.6]) # Dividir la pantalla en dos columnas
 
 with col1: # Columna de la izquierda
