@@ -1,12 +1,12 @@
 # Función para cargar el archivo y crear un objeto de ArchivoEjercicio
-from Ejercicio import Ejercicio
+from Ejercicio import Ejercicio, cargar_de_fichero
 from chatgpt import ChatConversation
 
-def cargar_archivo(nombre_archivo):
-    with open(nombre_archivo, 'r', encoding='utf-8') as archivo:
-        texto = archivo.read()
-        ejercicio = Ejercicio(texto)
-    return ejercicio
+#def cargar_archivo(nombre_archivo):
+#    with open(nombre_archivo, 'r', encoding='utf-8') as archivo:
+#        texto = archivo.read()
+#        ejercicio = Ejercicio(texto)
+#    return ejercicio
 
 # Función para imprimir información importante del ejercicio
 def imprimir_informacion(ejercicio):
@@ -48,9 +48,10 @@ test = [
 # Ejecución principal
 if __name__ == "__main__":
     nombre_archivo = './ejercicios/isla_mentirosos.txt'  # Asegúrate de que el archivo exista en esta ruta
-    ejercicio = cargar_archivo(nombre_archivo)
-
+    ejercicio = cargar_de_fichero(nombre_archivo)
     #imprimir_informacion(ejercicio)
+    #print('PROMPT:\n', ejercicio.prompt_tutor())
+
     errores = 0
     for t in test:
         print('\n', t['t'])

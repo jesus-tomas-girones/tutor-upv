@@ -11,7 +11,7 @@ En una isla los nativos siempre mienten y los extranjeros siempre dicen la verda
 Llegas a la isla y un hombre te dice: “La chica que tengo detrás me ha dicho que es nativa”. 
 ¿Este hombre es nativo o extranjero? Explica tu respuesta.
 
-CONTEXTO ASIGNATURA:
+CONTEXTO MATERIA:
 Información de interés genérica para toda la asignatura.
 
 CONTEXTO EJERCICIO:
@@ -49,28 +49,29 @@ Analizar la frase de la chica. ¿Qué pasaría si la chica es nativa? ¿Y si es 
 
 //Si el alumno pulsa [CORREGIR] y la solución está en esta lista, se preguntará la cuestión indicada. 
 
-ERROR CONCEPTUAL: sin justificar
-    SOLUCIÓN INCORRECTA: El hombre es nativo.
+SOLUCIÓN INCORRECTA: El hombre es nativo.
+    ERROR CONCEPTUAL: sin justificar
     PREGUNTA A INCORRECTA: ¿Podrías justificar la respuesta?
     RESPUESTA: ...
 
-ERROR CONCEPTUAL: conclusión incorrecta, sin justificar
-    SOLUCIÓN INCORRECTA: El hombre es extrangero.
+SOLUCIÓN INCORRECTA: El hombre es extrangero.
+    ERROR CONCEPTUAL: conclusión incorrecta, sin justificar
     PREGUNTA A INCORRECTA: ¿Podrías justificar la respuesta?
     RESPUESTA: …
 
-ERROR CONCEPTUAL: conclusión incorrecta, argumentación frase chica errónea
-    SOLUCIÓN INCORRECTA: El hombre es extrangero. La frase de la chica siempre es cierta.
+SOLUCIÓN INCORRECTA: El hombre es extrangero. La frase de la chica siempre es cierta.
+    ERROR CONCEPTUAL: conclusión incorrecta, argumentación frase chica errónea
     PREGUNTA A INCORRECTA: ¿Estás seguro que la frase de la chica es siempre cierta?
     
-ERROR CONCEPTUAL: argumentación frase chica errónea
-    SOLUCIÓN INCORRECTA: El hombre es nativo. La frase de la chica siempre es cierta.
+SOLUCIÓN INCORRECTA: El hombre es nativo. La frase de la chica siempre es cierta.
+    ERROR CONCEPTUAL: argumentación frase chica errónea
     PREGUNTA A INCORRECTA: ¿Estás seguro que la frase de la chica es siempre cierta?
 
-ERROR CONCEPTUAL: argumento no relevante
-    SOLUCIÓN INCORRECTA: El hombre es nativo o extrangero. Se justifica por que ha hablado o no con la chica.
+SOLUCIÓN INCORRECTA: El hombre es nativo o extrangero. Se justifica por que ha hablado o no con la chica.
+    ERROR CONCEPTUAL: argumento no relevante
     PREGUNTA A INCORRECTA: Observa la frase de la chica. ¿Encuentras alguna contradicción?
     RESPUESTA: Es una frase que nunca puede ser cierta
 
-ERROR CONCEPTUAL: argumento no relevante
-    SOLUCIÓN INCORRECTA: El hombre es nativo o extrangero. Se justifica con un argumento no relevante.
+SOLUCIÓN INCORRECTA: El hombre es nativo o extrangero. Se justifica con un argumento no relevante.
+    ERROR CONCEPTUAL: argumento no relevante
+    

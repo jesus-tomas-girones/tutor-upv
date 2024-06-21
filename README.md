@@ -1,22 +1,24 @@
-# 🎈 Streamlit + LLM Examples App
+# Tutor Socrático
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)
+Explicar...
 
-Starter examples for building LLM apps with Streamlit.
+app Web: https://tutor-upv.streamlit.app/
+
+Hospedado en: https://share.streamlit.io/ (usuario jtomas@upv.es de github) - 
+proyecto: tutor-upv 
+
+Repositorio: https://github.com/jesus-tomas-girones/tutor-upv
+
+
 
 ## Overview of the App
 
-This app showcases a growing collection of LLM minimum working examples.
+- IU basado en Streamlit
+- Registro basado en Firebase
+- LLM basado en API de OpenAI
 
-Current examples include:
 
-- Chatbot
-- File Q&A
-- Langchain Quickstart
-- Langchain PromptTemplate
-- LangChain Search
-
-## Demo App
+## Basado en el ejemplo de Streamlit:
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://llm-examples.streamlit.app/)
 

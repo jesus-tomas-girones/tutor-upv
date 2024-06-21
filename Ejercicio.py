@@ -8,13 +8,47 @@ class Ejercicio:
         self.titulo = None
         self.enunciado = None
         self.aclaracion_enunciado = None
-        self.contexto = None
+        self.contexto_materia = None
+        self.contexto_ejercicio = None
         self.soluciones = []
         self.soluciones_incorrectas = [] # {'texto','error_conceptual', 'pregunta_socratica', 'respuesta'}
         self.dudas_enunciado = []    # {'texto','respuesta'}
         self.preguntas_socraticas = [] # {'texto','respuesta'}
         self.extrae_de_texto(texto)
 
+
+    # Prompt para el tutor socrático
+    def prompt_tutor(self):
+        prompt = f'''
+Eres un tutor socrático y debes ayudar a un estudiante con el siguiente ejercicio:
+
+#TÍTULO: {self.titulo}
+#MATERIA: {self.materia}
+#BLOQUE: {self.bloque}
+#ENUNCIADO: {self.enunciado}
+#CONTEXTO MATERIA: {self.contexto_materia}
+#CONTEXTO EJERCICIO: {self.contexto_ejercicio}
+
+Si el estudiante plantea alguna duda, debes responderla usando la información:
+#ACLARACIÓN ENUNCIADO: {self.aclaracion_enunciado}
+
+Si el estudiante planteal alguna de las siguientes dudas del enenciado, responde lo que se indica:'''
+        for duda in self.dudas_enunciado:
+            prompt += f'#DUDA ENUNCIADO: {duda["texto"]}\n#RESPUESTA: {duda["respuesta"]}\n'
+        prompt += 'Si el estudiante plantea alguna de las siguientes preguntas, responde lo que se indica:'
+        for pregunta in self.preguntas_socraticas:
+            prompt += f'#PREGUNTA SOCRÁTICA: {pregunta["texto"]}\n#RESPUESTA: {pregunta["respuesta"]}\n'
+        prompt += 'Las posibles soluciones correctas del ejercicio son:'
+        for solucion in self.soluciones:
+            prompt += f'#SOLUCIÓN: {solucion}\n'
+        prompt += '\nAdemás, debes tener en cuenta las siguientes soluciones incorrectas:'
+        for incorrecta in self.soluciones_incorrectas:
+            prompt += f'#SOLUCIÓN INCORRECTA: {incorrecta["texto"]}\n#ERROR CONCEPTUAL: {incorrecta["error_conceptual"]}\n#PREGUNTA A INCORRECTA: {incorrecta["pregunta_socratica"]}\n#RESPUESTA: {incorrecta["respuesta"]}\n'
+        prompt += '''
+Si el estudiante plantea alguna duda sobre la solución, debes responderla de forma socrática.
+Nunca debes dar la respuesta directa, sino plantear preguntas que ayuden al estudiante a llegar a la respuesta correcta.'''
+        return prompt
+        
 
     # Método para corregir el ejercicio
     # Parámetros:
@@ -36,7 +70,8 @@ Dado el siguiente problema:
 #MATERIA: {self.materia}
 #BLOQUE: {self.bloque}
 #ENUNCIADO: {self.enunciado}
-#CONTEXTO: {self.contexto}
+#CONTEXTO MATERIA: {self.contexto_materia}
+#CONTEXTO EJERCICIO: {self.contexto_ejercicio}
 
 Con las siguientes soluciones correctas:
 '''
@@ -104,9 +139,12 @@ Recuerda que debes responder con la solución correcta o incorrecta que más se 
             elif linea.startswith('ENUNCIADO:'):
                 self.enunciado = linea.split('ENUNCIADO:')[1].strip()
                 seccion_actual = 'enunciado'
-            elif linea.startswith('CONTEXTO:'):
-                self.contexto = linea.split('CONTEXTO:')[1].strip()
-                seccion_actual = 'contexto'
+            elif linea.startswith('CONTEXTO MATERIA:'):
+                self.contexto_materia = linea.split('CONTEXTO MATERIA:')[1].strip()
+                seccion_actual = 'contexto_materia'
+            elif linea.startswith('CONTEXTO EJERCICIO:'):
+                self.contexto_ejercicio = linea.split('CONTEXTO EJERCICIO:')[1].strip()
+                seccion_actual = 'contexto_ejercicio'    
             elif linea.startswith('SOLUCIÓN:'):
                 solucion = linea.split(':')[1].strip()
                 self.soluciones.append(solucion)
@@ -135,8 +173,10 @@ Recuerda que debes responder con la solución correcta o incorrecta que más se 
                 self.titulo = (self.titulo+'\n'+linea).strip()
             elif seccion_actual == 'enunciado':
                 self.enunciado = (self.enunciado+'\n'+linea).strip()
-            elif seccion_actual == 'contexto':
-                self.contexto = (self.contexto+'\n'+linea).strip()
+            elif seccion_actual == 'contexto_materia':
+                self.contexto_materia = (self.contexto_materia+'\n'+linea).strip()
+            elif seccion_actual == 'contexto_ejercicio':
+                self.contexto_ejercicio = (self.contexto_ejercicio+'\n'+linea).strip()
             elif seccion_actual == 'aclaracion':
                 self.aclaracion_enunciado += linea + ' '
             elif seccion_actual == 'solucion':
@@ -175,3 +215,14 @@ Recuerda que debes responder con la solución correcta o incorrecta que más se 
                     seccion_actual = 'incorrecta_respuesta'
                 else:
                     self.soluciones_incorrectas[-1]['pregunta_socratica'] = (self.soluciones_incorrectas[-1]['pregunta_socratica']+'\n'+linea).strip()
+
+def cargar_de_fichero(nombre_fichero):
+    with open(nombre_fichero, 'r', encoding='utf-8') as archivo:
+        texto = archivo.read()
+        # Crear un objeto Ejercicio a partir del texto del archivo
+        ejercicio = Ejercicio(texto)
+    return ejercicio
+
+
+
+        
