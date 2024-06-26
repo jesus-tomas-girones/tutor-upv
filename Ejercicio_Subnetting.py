@@ -2,7 +2,8 @@ from openai import OpenAI
 import streamlit as st
 from Ejercicio import Ejercicio, cargar_de_fichero
 
-nombre_archivo = './ejercicios/isla_mentirosos.txt'  # Asegúrate de que el archivo exista en esta ruta
+#nombre_archivo = './ejercicios/isla_mentirosos.txt'  # Asegúrate de que el archivo exista en esta ruta
+nombre_archivo = './ejercicios/circuito_1.txt' 
 ejercicio = cargar_de_fichero(nombre_archivo)
 if "messages" not in st.session_state:
    st.session_state.messages = []
@@ -24,8 +25,9 @@ if not st.session_state.get("chatbot_api_key"):
 col1, col2 = st.columns([0.5,0.5]) # Dividir la pantalla en dos columnas
 
 with col1: # Columna de la izquierda
-   st.subheader(f"{ejercicio.titulo}")
-   st.write(f"{ejercicio.enunciado}")
+   st.subheader(ejercicio.titulo)
+   #st.write(f"{ejercicio.enunciado}")
+   st.markdown(ejercicio.enunciado, unsafe_allow_html=True)
    user_input = st.text_area('tu respuesta:', height=100)
 
    if st.button('Corregir'):

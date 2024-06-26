@@ -19,37 +19,41 @@ class Ejercicio:
 
     # Prompt para el tutor socrático
     def prompt_tutor(self):
-        prompt = f'''
-Eres un tutor socrático y debes ayudar a un estudiante con el siguiente ejercicio:
-
-#TÍTULO: {self.titulo}
-#MATERIA: {self.materia}
-#BLOQUE: {self.bloque}
-#ENUNCIADO: {self.enunciado}
-#CONTEXTO MATERIA: {self.contexto_materia}
-#CONTEXTO EJERCICIO: {self.contexto_ejercicio}
-
-Si el estudiante plantea alguna duda, debes responderla usando la información:
-#ACLARACIÓN ENUNCIADO: {self.aclaracion_enunciado}
-
-Si el estudiante planteal alguna de las siguientes dudas del enenciado, responde lo que se indica:'''
-        for duda in self.dudas_enunciado:
-            prompt += f'#DUDA ENUNCIADO: {duda["texto"]}\n#RESPUESTA: {duda["respuesta"]}\n'
-        prompt += 'Si el estudiante plantea alguna de las siguientes preguntas, responde lo que se indica:'
-        for pregunta in self.preguntas_socraticas:
-            prompt += f'#PREGUNTA SOCRÁTICA: {pregunta["texto"]}\n#RESPUESTA: {pregunta["respuesta"]}\n'
-        prompt += 'Las posibles soluciones correctas del ejercicio son:'
-        for solucion in self.soluciones:
-            prompt += f'#SOLUCIÓN: {solucion}\n'
-        prompt += '\nAdemás, debes tener en cuenta las siguientes soluciones incorrectas:'
-        for incorrecta in self.soluciones_incorrectas:
-            prompt += f'#SOLUCIÓN INCORRECTA: {incorrecta["texto"]}\n#ERROR CONCEPTUAL: {incorrecta["error_conceptual"]}\n#PREGUNTA A INCORRECTA: {incorrecta["pregunta_socratica"]}\n#RESPUESTA: {incorrecta["respuesta"]}\n'
+        prompt = 'Eres un tutor socrático y debes ayudar a un estudiante con el siguiente ejercicio:\n'
+        prompt += f'#TÍTULO: {self.titulo}'
+        if self.materia:
+            prompt += f'#MATERIA: {self.materia}\n'
+        if self.bloque:
+            prompt += f'#BLOQUE: {self.bloque}\n'
+        prompt += f'#ENUNCIADO: {self.enunciado}\n'
+        if self.contexto_materia:
+            prompt += f'#CONTEXTO MATERIA: {self.contexto_materia}\n'
+        if self.contexto_ejercicio:    
+            prompt += f'#CONTEXTO EJERCICIO: {self.contexto_ejercicio}\n'
+        if self.aclaracion_enunciado:
+            prompt += f'Si el estudiante plantea alguna duda, debes responderla usando la información:\n'
+            prompt += f'#ACLARACIÓN ENUNCIADO: {self.aclaracion_enunciado}\n'
+        if self.dudas_enunciado:
+            prompt += f'Si el estudiante planteal alguna de las siguientes dudas del enenciado, responde lo que se indica:\n'
+            for duda in self.dudas_enunciado:
+                prompt += f'#DUDA ENUNCIADO: {duda["texto"]}\n#RESPUESTA: {duda["respuesta"]}\n'
+        if self.preguntas_socraticas:        
+            prompt += 'Si el estudiante plantea alguna de las siguientes preguntas, responde lo que se indica:'
+            for pregunta in self.preguntas_socraticas:
+                prompt += f'#PREGUNTA SOCRÁTICA: {pregunta["texto"]}\n#RESPUESTA: {pregunta["respuesta"]}\n'
+        if self.soluciones:
+            prompt += 'Las posibles soluciones correctas del ejercicio son:'
+            for solucion in self.soluciones:
+                prompt += f'#SOLUCIÓN: {solucion}\n'
+        if self.soluciones_incorrectas:    
+            prompt += '\nAdemás, debes tener en cuenta las siguientes soluciones incorrectas:'
+            for incorrecta in self.soluciones_incorrectas:
+                prompt += f'#SOLUCIÓN INCORRECTA: {incorrecta["texto"]}\n#ERROR CONCEPTUAL: {incorrecta["error_conceptual"]}\n#PREGUNTA A INCORRECTA: {incorrecta["pregunta_socratica"]}\n#RESPUESTA: {incorrecta["respuesta"]}\n'
         prompt += '''
 Si el estudiante plantea alguna duda sobre la solución, debes responderla de forma socrática.
 Nunca debes dar la respuesta directa, sino plantear preguntas que ayuden al estudiante a llegar a la respuesta correcta.'''
         return prompt
         
-
     # Método para corregir el ejercicio
     # Parámetros:
     #   - respuesta: La solución propuesta por el estudiante

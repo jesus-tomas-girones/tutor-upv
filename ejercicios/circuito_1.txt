@@ -1,0 +1,126 @@
+//Fichero de ejercicio, donde el profesor añade información relevante para ayudar al LLM. Hay que utilizar encabezados preestablecidos.
+
+MATERIA: Circuitos 
+
+BLOQUE: Ley de Ohm. Básico. 
+
+TÍTULO: Circuito 1 
+
+ENUNCIADO:
+En el siguiente circuito hay un interruptor ideal conectado entre los nudos N2 y N3 que inicialmente está abierto. 
+¿De qué resistencias depende la diferencia de potencial entre los nudos N2 y 0? <br>
+
+<img src="https://drive.google.com/thumbnail?id=1-J7w7RZBZwK_DOMB30l1IFyF8x6b8TWS">
+
+<!-- Este circuito corresponde al siguiente netlist:
+V1 N1 0 10
+R1 N1 N2 1  
+R2 N2 0 1  
+R3 N3 0 1  
+R4 N2 0 1  
+R5 0 0 1  
+-->
+
+#### Elige la letra entre las siguientes opciones y razona tu respuesta:
+
+a) R1 y R2 <br>
+b) R1, R2 y R4 <br>
+c) R1, R2, R3 y R4 <br>
+d) R1, R2, R4 y R5 <br>
+e) Ninguna de las anteriores <br>
+
+CONTEXTO MATERIA:
+
+Eres un profesor de electrónica que quiere identificar concepciones alternativas (ACs) relacionadas con la Ley de Ohm a partir de razonamientos escritos de sus alumnos.
+En el siguiente documento (LINK) se listan las principales concepciones alternativas que pueden presentar los alumnos y se describe el modo de razonar del alumno (novato) y del experto para cada una de ellas.
+Tienes dos objetivos como profesor:
+1) Identificar las ACs de los alumnos a partir de sus razonamientos. Si durante la interacción con el alumno tienes dudas sobre qué AC tiene, hazle una o varias preguntas para averiguarlo. Ten en cuenta se pueden identificar varias ACs de un único razonamiento o interacción con el alumno.
+2) Acercar a los alumnos a la manera de razonar del experto con la ayuda de preguntas socráticas que les puedan servir para clarificar sus ACs.
+
+Aunque el alumno elija la respuesta correcta es necesario que la justifique para asegurar que no presenta ninguna AC.
+
+CONTEXTO EJERCICIO:
+
+El circuito corresponde al siguiente netlist:
+V1 N1 0 10
+R1 N1 N2 1  
+R2 N2 0 1  
+R3 N3 0 1  
+R4 N2 0 1  
+R5 0 0 1
+
+Este ejercicio en concreto está diseñado para detectar las siguientes ACs: AC1 (modelo del circuito abierto), AC6 (modelo del cortocircuito) y AC9 (razonamiento local).
+
+Los alumnos que eligen la respuesta a) presentan claramente la AC9 (no incluyen R4). Están cortando el circuito entre N2 y 0 y obviando el resto, no ven el circuito como un sistema. R4 está conectada en paralelo a R2, así que también hay que tenerla en cuenta para calcular la diferencia de tensión entre N2 y 0.
+Los alumnos que eligen la respuesta c) presentan claramente la AC1 (incluyen R3). La resistencia R3 está en circuito abierto y, por tanto, no circula corriente a través de ella, y no forma parte del circuito. El alumno con la AC1 cree que en un circuito que está abierto puede circular corriente (está considerando que el interruptor está cerrado) y, por tanto, considera R3 influye en el cálculo de la diferencia de tensión entre N2 y 0.
+Los alumnos que eligen la respuesta d) presentan claramente la AC6 (incluyen R5). La resistencia R5 está cortocircuitada (sus dos terminales están conectados al mismo nudo), así que la corriente va a circular por el cortocircuito en vez de por la resistencia ya que éste no se opone a su paso. Los alumnos que eligen está opción obvian el cable que cortocircuita la resistencia R5 (los alumnos con la AC6 creen que los cables se pueden eliminar).
+Los alumnos que eligen la respuesta e) pueden tener cualquier AC. Es necesario analizar bien su razonamiento y hacerles las preguntas socráticas convenientes para acercarle a la manera de razonar del experto.
+
+
+SOLUCIÓN:
+La respuesta correcta es la b). Se han de tener en cuenta todas las resistencias que forman parte del circuito. 
+Se han descartado (no forman parte del circuito) las siguientes resistencias:
+1) La resistencia R3 no se considera porque no tiene sus dos terminales conectados al circuito, 
+uno de ellos está desconectado, así que por ella no circula corriente (IR3=0) y, según la Ley de Ohm, 
+la tensión en sus bornes es de VR3=IR3*R3=0.
+2) La resistencia R5 no se considera porque está cortocircuitada (sus dos terminales están conectados al mismo nudo), 
+así que la corriente va a circular por el cortocircuito en vez de por la resistencia ya que éste no se opone a su paso. 
+La corriente que circula por R5 (IR5) es cero y, por tanto, la tensión en sus bornes es de VR5=IR5*R5=0.
+
+La diferencia de tensión entre los nudos N2 y 0 se calcula como: VN2-0=(R2//R4)/[R1+(R2//R4)]*V1, donde R2//R4 significa R2 en paralelo con R4
+
+SOLUCIÓN:
+b. R3 tiene un terminal desconectado y R5 está cortocircuitada. El resto de resistencias, R1, R2 y R4, influyen en la tensión.  
+
+ACLARACIÓN ENUNCIADO:
+Es obligatorio justificar la respuesta.
+
+DUDA ENUNCIADO: ¿Qué es la diferencia de potencial?
+   RESPUESTA: Es la diferencia de tensión
+
+DUDA ENUNCIADO: ¿Donde está N3?
+   RESPUESTA: En el extremo de R3 que no está conctado a 0 (tierra).
+
+PREGUNTA SOCRÁTICA: Observa R3 ¿Que voltaje hay en esta resistencia?
+    RESPUESTA: Uno de sus terminales está desconectado, así que por R3 no circula corriente.
+
+PREGUNTA SOCRÁTICA: Observa R5 ¿Que voltage hay en esta resistencia?
+    RESPUESTA: Está cortocircuitada, así que por R5 no circula corriente.
+
+//Si el alumno pulsa [CORREGIR] y la solución está en esta lista, se preguntará la cuestión indicada. 
+
+SOLUCIÓN INCORRECTA: b, sin razonamiento
+    ERROR CONCEPTUAL: Correcto, sin justificar
+    PREGUNTA INCORRECTA: ¿Podrías justificar la respuesta?
+
+SOLUCIÓN INCORRECTA: a, sin razonamiento
+    ERROR CONCEPTUAL: Incorrecto, sin justificar
+    PREGUNTA INCORRECTA: ¿Podrías justificar la respuesta?
+
+SOLUCIÓN INCORRECTA: c, sin razonamiento
+    ERROR CONCEPTUAL: Incorrecto, sin justificar
+    PREGUNTA INCORRECTA: ¿Podrías justificar la respuesta?
+
+SOLUCIÓN INCORRECTA: d, sin razonamiento
+    ERROR CONCEPTUAL: Incorrecto, sin justificar
+    PREGUNTA INCORRECTA: ¿Podrías justificar la respuesta?
+
+SOLUCIÓN INCORRECTA: e, sin razonamiento
+    ERROR CONCEPTUAL: Incorrecto, sin justificar
+    PREGUNTA INCORRECTA: ¿Podrías justificar la respuesta?
+
+SOLUCIÓN INCORRECTA: a, cualquier razonamiento
+    ERROR CONCEPTUAL: AC9 (razonamiento local)
+    PREGUNTA INCORRECTA: ¿Por qué no depende de R3, R4 y R5? La corriente que llega al nudo N2, ¿cómo se distribuye?
+
+SOLUCIÓN INCORRECTA: c, cualquier razonamiento
+    ERROR CONCEPTUAL: AC1
+    PREGUNTA INCORRECTA: ¿Qué corriente circula por R3?
+    
+SOLUCIÓN INCORRECTA: d, cualquier razonamiento
+    ERROR CONCEPTUAL: AC6
+    PREGUNTA INCORRECTA: ¿Qué corriente circula por R5?
+
+SOLUCIÓN INCORRECTA: e, cualquier razonamiento
+    ERROR CONCEPTUAL: hay que averiguarlo
+    PREGUNTA INCORRECTA: ¿En qué resistencias circula una corriente diferente de cero?
